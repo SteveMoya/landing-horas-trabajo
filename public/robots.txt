@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://horas-trabajo.stevemoya.me/sitemap-index.xml

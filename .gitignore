@@ -1,0 +1,12 @@
+# build output
+dist/
+# generated
+.astro/
+# deps
+node_modules/
+# cloudflare
+.wrangler/
+.dev.vars
+# logs / os
+*.log
+.DS_Store

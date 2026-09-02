@@ -1,0 +1,46 @@
+---
+import Logo from '@/components/brand/Logo.astro';
+import Container from '@/components/ui/Container.astro';
+import { nav, site } from '@/data/site';
+---
+
+<footer class="bg-ink-900 text-slate-300">
+  <Container class="pt-14 pb-10">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <Logo id="footer" size={36} />
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
+          {site.description}
+        </p>
+        <div class="mt-5 inline-flex rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 ring-1 ring-white/15">
+          <span class="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
+          Beta · Android · 100% local
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Secciones</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {nav.map((x) => (
+            <li><a class="text-slate-400 transition-colors hover:text-white" href={x.href}>{x.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Proyecto</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a class="text-slate-400 transition-colors hover:text-white" href={site.githubRepo} target="_blank" rel="noopener noreferrer">Código en GitHub</a></li>
+          <li><a class="text-slate-400 transition-colors hover:text-white" href={site.releasesUrl} target="_blank" rel="noopener noreferrer">Releases · APK</a></li>
+          <li><a class="text-slate-400 transition-colors hover:text-white" href="#privacidad">Privacidad</a></li>
+          <li><a class="text-slate-400 transition-colors hover:text-white" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
+      <p>© {new Date().getFullYear()} Steve Moya · Horas Trabajo RD · Ley 16-92.</p>
+      <p>Hecho con Astro · Material 3 · Inter</p>
+    </div>
+  </Container>
+</footer>

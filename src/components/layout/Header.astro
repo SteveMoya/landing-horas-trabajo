@@ -1,0 +1,63 @@
+---
+import Logo from '@/components/brand/Logo.astro';
+import Button from '@/components/ui/Button.astro';
+import Container from '@/components/ui/Container.astro';
+import { nav } from '@/data/site';
+---
+
+<header data-header class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-200">
+  <Container class="flex h-16 items-center justify-between gap-4">
+    <a href="#inicio" class="flex items-center" aria-label="Horas Trabajo — inicio">
+      <Logo id="header" />
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Principal">
+      {nav.map((item) => (
+        <a href={item.href} class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-700">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <Button href="#descarga" size="md" class="hidden sm:inline-flex">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" />
+        </svg>
+        Descargar
+      </Button>
+      <button
+        id="menu-btn"
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+        aria-label="Abrir menú"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+  </Container>
+</header>
+
+<div id="mobile-menu" hidden class="fixed inset-x-0 top-16 z-40 border-b border-slate-100 bg-white px-5 py-4 shadow-soft md:hidden">
+  <nav class="flex flex-col gap-1" aria-label="Menú móvil">
+    {nav.map((item) => (
+      <a
+        href={item.href}
+        data-menu-link
+        class="rounded-xl px-4 py-3 text-base font-medium text-ink-900 transition-colors hover:bg-brand-50"
+      >
+        {item.label}
+      </a>
+    ))}
+    <Button href="#descarga" size="lg" class="mt-2 w-full">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" />
+      </svg>
+      Descargar APK
+    </Button>
+  </nav>
+</div>

@@ -1,0 +1,62 @@
+---
+import Container from '@/components/ui/Container.astro';
+import Section from '@/components/ui/Section.astro';
+import { recargos, divisorHora } from '@/data/salario';
+---
+
+<section id="salario" class="bg-white py-24">
+  <Container>
+    <Section
+      eyebrow="Motor salarial"
+      title="Cálculo según la Ley 16-92 (Código de Trabajo RD)"
+      subtitle="La app clasifica cada minuto de tu jornada por concepto y calcula lo que te corresponde. Los porcentajes se pueden ajustar desde Ajustes."
+    />
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+      <!-- Tabla de recargos -->
+      <div class="overflow-hidden rounded-card border border-slate-100 bg-white shadow-soft">
+        <div class="grid grid-cols-[1fr_auto_auto] gap-x-6 border-b border-slate-100 bg-brand-50/60 px-6 py-3.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <span>Concepto</span>
+          <span class="text-right">Recargo</span>
+          <span class="text-right">Factor</span>
+        </div>
+        {recargos.map((r) => (
+          <div class="grid grid-cols-[1fr_auto_auto] items-center gap-x-6 border-b border-slate-50 px-6 py-4 last:border-0" data-reveal>
+            <div>
+              <div class="font-semibold text-ink-900">{r.concepto}</div>
+              <div class="text-sm text-slate-500">{r.detalle}</div>
+            </div>
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-sm font-bold text-brand-700">{r.porcentaje}</span>
+            <span class="text-right font-display text-sm font-extrabold text-gold-500">{r.multiplicador}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Fórmula -->
+      <div class="overflow-hidden rounded-card bg-ink-800 text-white shadow-lift">
+        <div class="border-b border-white/10 px-6 py-5">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-slate-200 ring-1 ring-white/15">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10m5 10V4m5 16v-8m5 8V8"/></svg>
+            Valor de la hora ordinaria
+          </span>
+        </div>
+        <div class="px-6 py-6">
+          <div class="font-display text-xl font-extrabold tabular-nums">RD$157.36</div>
+          <p class="mt-1 text-xs text-slate-400">ej. con salario mensual RD$30.000</p>
+          <div class="mt-5 rounded-2xl bg-white/5 p-4 text-sm font-medium text-slate-200 ring-1 ring-white/10">
+            <code class="tabular-nums">{divisorHora}</code>
+          </div>
+          <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+            <li class="flex gap-2.5"><span class="text-emerald-400">✓</span> Clasificación minuto a minuto</li>
+            <li class="flex gap-2.5"><span class="text-emerald-400">✓</span> Resumen por concepto</li>
+            <li class="flex gap-2.5"><span class="text-emerald-400">✓</span> Importe a pagar semanal/mensual</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 text-center text-xs text-slate-400">
+      Referencia: normativa laboral vigente de República Dominicana (Código de Trabajo, Ley 16-92). Los valores son editables en la app.
+    </p>
+  </Container>
+</section>

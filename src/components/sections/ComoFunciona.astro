@@ -1,0 +1,41 @@
+---
+import Container from '@/components/ui/Container.astro';
+import Section from '@/components/ui/Section.astro';
+import { pasos } from '@/data/pasos';
+
+const icons: Record<string, string> = {
+  ubicacion:
+    '<path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
+  marca:
+    '<circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/>',
+  cobro:
+    '<circle cx="12" cy="12" r="9"/><path d="M12 7v10m3-8H9.5a1.7 1.7 0 0 0 0 3.4h5a1.7 1.7 0 0 1 0 3.4H9.5"/>',
+};
+---
+
+<section id="como-funciona" class="bg-brand-50/60 py-24">
+  <Container>
+    <Section
+      eyebrow="Cómo funciona"
+      title="Tres pasos y tus horas quedan listas"
+      subtitle="Sin formularios ni configuraciones complejas. La app te acompaña en cada momento del día."
+    />
+
+    <div class="relative mt-14 grid gap-8 md:grid-cols-3">
+      <div class="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-brand-200 to-transparent md:block" aria-hidden="true"></div>
+
+      {pasos.map((p) => (
+        <div class="relative flex flex-col items-center text-center" data-reveal>
+          <div class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 text-white shadow-soft">
+            <span class="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-400 text-xs font-extrabold text-ink-900">
+              {p.paso}
+            </span>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={icons[p.icon]}></svg>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-ink-900">{p.titulo}</h3>
+          <p class="mt-2 max-w-xs text-sm leading-relaxed text-slate-600">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

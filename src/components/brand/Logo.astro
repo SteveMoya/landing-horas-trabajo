@@ -1,0 +1,55 @@
+---
+interface Props {
+  size?: number;
+  withText?: boolean;
+  id?: string;
+}
+const { size = 40, withText = false, id = 'ht' } = Astro.props;
+const gid = `lg-${id}`;
+---
+
+<span
+  class:list={['inline-flex items-center gap-2.5 select-none shrink-0']}
+  style="height:{size}px"
+  aria-hidden="true"
+>
+  <svg width={size} height={size} viewBox="0 0 64 64" fill="none" role="img">
+    <defs>
+      <linearGradient id={`${gid}-bg`} x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#3496dd" />
+        <stop offset="1" stop-color="#0e4a8e" />
+      </linearGradient>
+    </defs>
+
+    <!-- Placa redondeada -->
+    <rect x="2" y="2" width="60" height="60" rx="16" fill={`url(#${gid}-bg)`} />
+    <rect x="2.5" y="2.5" width="59" height="59" rx="15.5" stroke="white" stroke-opacity="0.14" stroke-width="1" />
+
+    <!-- Pin de ubicación -->
+    <path
+      d="M32 11c-5.6 0-10 4.4-10 10 0 7.5 10 15.5 10 15.5S42 28.5 42 21c0-5.6-4.4-10-10-10Z"
+      fill="#ffffff"
+    />
+    <circle cx="32" cy="21" r="3.4" fill="#1565c0" />
+    <path d="M26.5 27.3 23 30.5" stroke="#4dd0e1" stroke-width="2.6" stroke-linecap="round" />
+
+    <!-- Reloj (esfera) -->
+    <circle cx="32" cy="39" r="15.5" fill="#0a2f5a" />
+    <circle cx="32" cy="39" r="15.5" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5" />
+    <circle cx="32" cy="39" r="14.2" fill="#0e4a8e" opacity="0.55" />
+
+    <!-- Manecillas -->
+    <path d="M32 39 V29.5" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    <path d="M32 39 L38.4 43.1" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+    <circle cx="32" cy="39" r="2.4" fill="#f3a712" />
+  </svg>
+
+  {
+    withText && (
+      <span class="leading-none font-display" style="font-size:{Math.round(size * 0.5)}px">
+        <span class="font-extrabold tracking-tight text-ink-900">Horas</span>
+        <span class="font-extrabold tracking-tight text-brand-600">Trabajo</span>
+      </span>
+    )
+  }
+</span>

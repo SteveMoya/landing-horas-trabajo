@@ -1,0 +1,16 @@
+---
+interface Props {
+  tone?: 'blue' | 'cyan' | 'gold' | 'white';
+  class?: string;
+}
+const { tone = 'blue', class: className = '' } = Astro.props;
+const tones: Record<string, string> = {
+  blue: 'bg-brand-100 text-brand-700',
+  cyan: 'bg-accent-400/20 text-accent-600',
+  gold: 'bg-gold-300/30 text-gold-500',
+  white: 'bg-white/10 text-white ring-1 ring-white/20',
+};
+const cls = `inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${tones[tone]} ${className}`;
+---
+
+<span class={cls}><slot /></span>
