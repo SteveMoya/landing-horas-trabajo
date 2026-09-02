@@ -19,6 +19,8 @@ export const site: SiteConfig = {
   url: 'https://horas-trabajo.stevemoya.me',
   githubRepo: 'https://github.com/SteveMoya/horas-trabajo',
   releasesUrl: 'https://github.com/SteveMoya/horas-trabajo/releases',
+  // Fallback estático (si el fetch en runtime falla). V0 actual se resuelve
+  // automáticamente desde la API (script scripts/latest-release.ts).
   apkUrl: 'https://github.com/SteveMoya/horas-trabajo/releases/download/v0.3.7/horas-trabajo-v0.3.7.apk',
   primaryColor: '#1565c0',
 };
