@@ -13,20 +13,25 @@ const icons: Record<string, string> = {
 };
 ---
 
-<section id="como-funciona" class="bg-brand-50/60 py-24">
-  <Container>
+<section id="como-funciona" class="relative overflow-hidden bg-brand-50/60 py-24">
+  <div class="bg-lines pattern-fade pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
+
+  <Container class="relative">
     <Section
       eyebrow="Cómo funciona"
       title="Tres pasos y tus horas quedan listas"
       subtitle="Sin formularios ni configuraciones complejas. La app te acompaña en cada momento del día."
     />
 
-    <div class="relative mt-14 grid gap-8 md:grid-cols-3">
+    <div class="stagger relative mt-14 grid gap-8 md:grid-cols-3">
       <div class="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-brand-200 to-transparent md:block" aria-hidden="true"></div>
 
       {pasos.map((p) => (
-        <div class="relative flex flex-col items-center text-center" data-reveal>
-          <div class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 text-white shadow-soft">
+        <div
+          class="group relative flex flex-col items-center rounded-card border border-transparent bg-white/70 p-4 text-center backdrop-blur-[1px] transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:bg-white hover:shadow-soft"
+          data-reveal
+        >
+          <div class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 text-white shadow-soft transition-transform duration-300 group-hover:scale-105">
             <span class="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-400 text-xs font-extrabold text-ink-900">
               {p.paso}
             </span>

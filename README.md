@@ -12,7 +12,9 @@ Diseño: **Material 3 + Inter** (el mismo lenguaje visual de la app). Paleta de 
 - **Motor salarial Ley 16-92**: recargos editables (extras +35%, exceso +100%, nocturna +15%, feriado doble).
 - **Privacidad** (todo local, sin cuentas, open source).
 - **FAQ** (acordeones accesibles) + **CTA** de descarga del APK (Beta).
+- **Páginas legales**: `/privacy-policy` y `/terms-and-conditions` (mismo diseño, responsive).
 - SEO completo (OG, Twitter, JSON-LD SoftwareApplication, sitemap) y accesibilidad.
+- Patrones de fondo sutiles (grid/dots/líneas) y animaciones: reveal escalonado por scroll, hovers, y subrayado "tipo pluma" en el hero — todo con `prefers-reduced-motion`.
 
 ## 🛠️ Stack
 - **Astro 7** · **pnpm 11** · TypeScript estricto · Node 22.

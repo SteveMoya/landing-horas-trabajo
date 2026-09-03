@@ -4,8 +4,10 @@ import Section from '@/components/ui/Section.astro';
 import { recargos, divisorHora } from '@/data/salario';
 ---
 
-<section id="salario" class="bg-white py-24">
-  <Container>
+<section id="salario" class="relative overflow-hidden bg-white py-24">
+  <div class="bg-cross pattern-fade pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
+
+  <Container class="relative">
     <Section
       eyebrow="Motor salarial"
       title="Cálculo según la Ley 16-92 (Código de Trabajo RD)"
@@ -20,16 +22,18 @@ import { recargos, divisorHora } from '@/data/salario';
           <span class="text-right">Recargo</span>
           <span class="text-right">Factor</span>
         </div>
-        {recargos.map((r) => (
-          <div class="grid grid-cols-[1fr_auto_auto] items-center gap-x-6 border-b border-slate-50 px-6 py-4 last:border-0" data-reveal>
-            <div>
-              <div class="font-semibold text-ink-900">{r.concepto}</div>
-              <div class="text-sm text-slate-500">{r.detalle}</div>
+        <div class="stagger">
+          {recargos.map((r) => (
+            <div class="grid grid-cols-[1fr_auto_auto] items-center gap-x-6 border-b border-slate-50 px-6 py-4 transition-colors duration-200 last:border-0 hover:bg-brand-50/50" data-reveal>
+              <div>
+                <div class="font-semibold text-ink-900">{r.concepto}</div>
+                <div class="text-sm text-slate-500">{r.detalle}</div>
+              </div>
+              <span class="rounded-full bg-brand-50 px-3 py-1 text-sm font-bold text-brand-700">{r.porcentaje}</span>
+              <span class="text-right font-display text-sm font-extrabold text-gold-500">{r.multiplicador}</span>
             </div>
-            <span class="rounded-full bg-brand-50 px-3 py-1 text-sm font-bold text-brand-700">{r.porcentaje}</span>
-            <span class="text-right font-display text-sm font-extrabold text-gold-500">{r.multiplicador}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <!-- Fórmula -->

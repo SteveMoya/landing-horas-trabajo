@@ -4,8 +4,10 @@ import Container from '@/components/ui/Container.astro';
 import { nav, site } from '@/data/site';
 ---
 
-<footer class="bg-ink-900 text-slate-300">
-  <Container class="pt-14 pb-10">
+<footer class="relative bg-ink-900 text-slate-300">
+  <div class="bg-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
+
+  <Container class="relative pt-14 pb-10">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="lg:col-span-2">
         <Logo id="footer" size={36} />
@@ -28,19 +30,22 @@ import { nav, site } from '@/data/site';
       </div>
 
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Proyecto</h3>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Legal</h3>
         <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a class="text-slate-400 transition-colors hover:text-white" href="/privacy-policy">Política de Privacidad</a></li>
+          <li><a class="text-slate-400 transition-colors hover:text-white" href="/terms-and-conditions">Términos y Condiciones</a></li>
           <li><a class="text-slate-400 transition-colors hover:text-white" href={site.githubRepo} target="_blank" rel="noopener noreferrer">Código en GitHub</a></li>
           <li><a class="text-slate-400 transition-colors hover:text-white" href={site.releasesUrl} target="_blank" rel="noopener noreferrer">Releases · APK</a></li>
-          <li><a class="text-slate-400 transition-colors hover:text-white" href="#privacidad">Privacidad</a></li>
-          <li><a class="text-slate-400 transition-colors hover:text-white" href="#faq">FAQ</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
       <p>© {new Date().getFullYear()} Steve Moya · Horas Trabajo RD · Ley 16-92.</p>
-      <p>Hecho con Astro · Material 3 · Inter</p>
+      <div class="flex items-center gap-5">
+        <a href="/privacy-policy" class="transition-colors hover:text-slate-300">Privacidad</a>
+        <a href="/terms-and-conditions" class="transition-colors hover:text-slate-300">Términos</a>
+      </div>
     </div>
   </Container>
 </footer>

@@ -1,0 +1,74 @@
+---
+import LegalLayout from '@/layouts/LegalLayout.astro';
+
+const S = 'h2 mt-8 text-xl font-bold text-ink-900';
+const P = 'mt-3 leading-relaxed text-slate-600';
+const LI = 'mt-2 flex gap-3 leading-relaxed text-slate-600';
+---
+
+<LegalLayout
+  title="Política de Privacidad"
+  updated="2 de septiembre de 2026"
+  description="Cómo Horas Trabajo maneja tu información. Todo se guarda en tu dispositivo; no se recopilan datos en ningún servidor."
+>
+  <section>
+    <p class={P}>
+      En <strong>Horas Trabajo</strong> hemos diseñado la aplicación para que tus datos se
+      queden <strong>en tu dispositivo</strong>. Esta política explica qué información se
+      procesa, cómo se usa y por qué no se comparte.
+    </p>
+  </section>
+
+  <section>
+    <h2 class={S}>1. Información que tratamos</h2>
+    <ul class="mt-4 space-y-2">
+      <li class={LI}><span class="mt-0.5 text-brand-600">•</span> <strong>Jornadas:</strong> fechas y horas de entrada y salida que registras, y si están en curso o cerradas.</li>
+      <li class={LI}><span class="mt-0.5 text-brand-600">•</span> <strong>Ubicación (opcional):</strong> la coordenada que captures al marcar y, si lo decides, la de tu lugar de trabajo para los avisos de llegada/salida.</li>
+      <li class={LI}><span class="mt-0.5 text-brand-600">•</span> <strong>Preferencias:</strong> tema (claro/oscuro), color primario y los porcentajes salariales editables que elijas.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class={S}>2. Cómo se usa</h2>
+    <p class={P}>
+      Se utiliza exclusivamente para: registrar tus horas, calcular el importe según la
+      normativa (Ley 16-92) con tus reglas configuradas, y mostrar avisos locales cuando
+      llegas o sales de tu lugar de trabajo.
+    </p>
+  </section>
+
+  <section>
+    <h2 class={S}>3. Almacenamiento local</h2>
+    <p class={P}>
+      Todo se guarda de forma local en la base de datos de tu teléfono (SQLite) y en preferencias
+      del sistema. No existe cuenta de usuario, no hay nube y no se sube nada a un servidor.
+      Puedes eliminar todos los datos desinstalando la app o borrando sus datos desde los
+      ajustes de Android.
+    </p>
+  </section>
+
+  <section>
+    <h2 class={S}>4. Ubicación</h2>
+    <p class={P}>
+      La app solicita permiso de ubicación solo para registrar tu marcado y para la geocerca
+      del lugar de trabajo. La ubicación se emplea en tu propio dispositivo y no se transmite
+      a terceros. Nada de tu ubicación abandona el teléfono.
+    </p>
+  </section>
+
+  <section>
+    <h2 class={S}>5. No compartimos ni vendemos datos</h2>
+    <p class={P}>
+      No compartimos, vendemos ni transferimos tu información a terceros. No utilizamos
+      publicidad y no incorporamos analíticas que envíen tus datos a servicios externos.
+    </p>
+  </section>
+
+  <section>
+    <h2 class={S}>6. Contacto</h2>
+    <p class={P}>
+      Si tienes dudas sobre esta política, escribe al autor vía el repositorio público de la
+      aplicación en GitHub.
+    </p>
+  </section>
+</LegalLayout>
